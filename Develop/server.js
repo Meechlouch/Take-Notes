@@ -1,17 +1,18 @@
+// require express npm packages to utilize for server functionality
 const express = require("express");
+
+// save the express server into a variable
 const app = express();
-const path = require("path");
 
-//Setup routes
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "index.html"));
-});
-app.get("/notes", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "notes.html"));
-});
-// Set static folder
-app.use(express.static(path.join(__dirname, "public")));
-
+//Sets an initial port.
 const PORT = process.env.PORT || 3000;
 
+// Sets up the Express app to handle data parsing
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+require("./routes/apiRoutes.js")(app);
+require("./routes/htmlRoutes")(app);
+
+//Starts up our Server
 app.listen(PORT, () => console.log(`Server started on port: ${PORT}`));
