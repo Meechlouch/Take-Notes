@@ -10,24 +10,25 @@ module.exports = function (app) {
   app.post("/api/notes/", (req, res) => {
     let savedData = fs.readFileSync(data, "utf8");
     savedData = JSON.parse(savedData);
-
     savedData.push(req.body);
 
-    console.log(savedData);
     for (let i = 0; i < savedData.length; i++) {
       savedData[i].id = i;
     }
+
     savedData = JSON.stringify(savedData);
     fs.writeFileSync(data, savedData);
-
     res.send(savedData);
   });
 
   app.delete("/api/notes/:id", (req, res) => {
     let savedData = fs.readFileSync(data, "utf8");
+    savedData = JSON.parse(savedData);
+    let idNum = parseInt(req.params.id);
+    oneNote = savedData.filter((savedData) => savedData.id === idNum);
+    console.log(idNum);
 
-    console.log(req.params.id);
-    //console.log(savedData);
-    savedData;
+    savedData.splice(idNum, 1);
+    dataBase.map(savedData);
   });
 };
