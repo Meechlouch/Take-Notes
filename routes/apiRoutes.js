@@ -25,10 +25,15 @@ module.exports = function (app) {
     let savedData = fs.readFileSync(data, "utf8");
     savedData = JSON.parse(savedData);
     let idNum = parseInt(req.params.id);
-    oneNote = savedData.filter((savedData) => savedData.id === idNum);
+    //oneNote = savedData.filter((savedData) => savedData.id === idNum);
     console.log(idNum);
 
     savedData.splice(idNum, 1);
-    dataBase.map(savedData);
+    for (let i = 0; i < savedData.length; i++) {
+      savedData[i].id = i;
+    }
+    savedData = JSON.stringify(savedData);
+    fs.writeFileSync(data, savedData);
+    res.send(savedData);
   });
 };
