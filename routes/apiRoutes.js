@@ -1,5 +1,4 @@
 const fs = require("fs");
-//const path = require("path");
 const dataBase = require("../db/db.json");
 const data = "./db/db.json";
 module.exports = function (app) {
@@ -8,16 +7,27 @@ module.exports = function (app) {
     return res.json(dataBase);
   });
 
-  app.post("/api/notes", (req, res) => {
+  app.post("/api/notes/", (req, res) => {
     let savedData = fs.readFileSync(data, "utf8");
-    //console.log(savedData);
     savedData = JSON.parse(savedData);
-    //console.log(savedData);
-    req.body.id = savedData.length;
+
     savedData.push(req.body);
-    //console.log(savedData);
+
+    console.log(savedData);
+    for (let i = 0; i < savedData.length; i++) {
+      savedData[i].id = i;
+    }
     savedData = JSON.stringify(savedData);
     fs.writeFileSync(data, savedData);
-    console.log(savedData);
+
+    res.send(savedData);
+  });
+
+  app.delete("/api/notes/:id", (req, res) => {
+    let savedData = fs.readFileSync(data, "utf8");
+
+    console.log(req.params.id);
+    //console.log(savedData);
+    savedData;
   });
 };

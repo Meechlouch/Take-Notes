@@ -1,5 +1,6 @@
 // Require 'path' package to get file path for our html
 const express = require("express");
+const app = express();
 const path = require("path");
 
 module.exports = function (app) {
