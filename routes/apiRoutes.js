@@ -1,16 +1,21 @@
+// Require access to the NodeJs file system module to modify our files
 const fs = require("fs");
-const dataBase = require("../db/db.json");
+// path saved in variable
 const data = "./db/db.json";
 
 module.exports = function (app) {
-  // Setup express app to listen to a 'GET' request on route /api/notes
+  // Setup express app to listen for a 'GET' request on route /api/notes
   app.get("/api/notes", (req, res) => {
+    // fs reads a file at data path location, then a callback function with two arguments is executed
     fs.readFile(data, (err, resp) => {
+      // err is thrown if something goes wrong
       if (err) throw err;
+      // Data is sent if all is well
       res.json(JSON.parse(resp));
     });
   });
 
+  // Setup express app to listen for a 'POST' request on route /api/notes
   app.post("/api/notes/", (req, res) => {
     let savedData = fs.readFileSync(data, "utf8");
     savedData = JSON.parse(savedData);
