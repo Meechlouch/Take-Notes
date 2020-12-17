@@ -16,8 +16,9 @@ module.exports = function (app) {
     savedData = JSON.parse(savedData);
     savedData.push(req.body);
     console.log(req.body);
+
     for (let i = 0; i < savedData.length; i++) {
-      savedData[i].id = i;
+      savedData[i].id = i + 1;
     }
 
     savedData = JSON.stringify(savedData);
