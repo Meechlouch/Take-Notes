@@ -21,6 +21,7 @@ module.exports = function (app) {
       savedData[i].id = i + 1;
     }
 
+    console.log(savedData);
     savedData = JSON.stringify(savedData);
     fs.writeFileSync(data, savedData);
     res.json(JSON.parse(savedData));
@@ -30,18 +31,17 @@ module.exports = function (app) {
     let savedData = fs.readFileSync(data, "utf8");
     console.log(savedData);
     savedData = JSON.parse(savedData);
-    console.log(savedData);
+
     let idNum = parseInt(req.params.id);
     //oneNote = savedData.filter((savedData) => savedData.id === idNum);
     console.log(idNum);
 
-    savedData.splice(idNum, 1);
+    savedData.splice(idNum - 1, 1);
     for (let i = 0; i < savedData.length; i++) {
-      savedData[i].id = i;
+      savedData[i].id = i + 1;
     }
     console.log(savedData);
     savedData = JSON.stringify(savedData);
-    console.log(savedData);
     fs.writeFileSync(data, savedData);
     res.send(JSON.parse(savedData));
   });
