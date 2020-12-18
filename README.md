@@ -1,5 +1,5 @@
   <h1 align = "center">
-  <img src="./public/assets/img/Meech-The-Programming-Dj.jpg" alt="Logo" title="Meech" align="center" height="150">
+  <img src="./public/assets/img/Meech-The-Programming-Dj.jpg" alt="Logo" title="Meech" align="center" height="200">
   <br>
   :star: Take Notes :star:
   </h1>
