@@ -1,5 +1,5 @@
   <h1 align = "center">
-  <img src="./public/assets/img/Meech-The-Programming-Dj.jpg" alt="Logo" title="Meech" align="center" height="137">
+  <img src="./public/assets/img/Meech-The-Programming-Dj.jpg" alt="Logo" title="Meech" align="center" height="150">
   <br>
   :star: Take Notes :star:
   </h1>
@@ -23,8 +23,8 @@ jafj faj
 
 ## :camera: Visuals
 
-  <img src="./public/assets/img/NoteTaker1.png" width="300">
-  <img src="./public/assets/img/NoteTaker2.png" width="300">
+  <img src="./public/assets/img/NoteTaker1.png" width="500">
+  <img src="./public/assets/img/NoteTaker2.png" width="500">
 
 ## Installation:
 
