@@ -43,8 +43,10 @@ module.exports = function (app) {
     savedData = JSON.parse(savedData);
     // Our param.id is parsed from a string to a number and saved to variable
     let idNum = parseInt(req.params.id);
+    console.log(idNum);
     // delete from array
     savedData.splice(idNum - 1, 1);
+    console.log(savedData);
     // reset id at every index
     for (let i = 0; i < savedData.length; i++) {
       savedData[i].id = i + 1;
