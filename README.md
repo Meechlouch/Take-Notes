@@ -26,8 +26,8 @@ directory.
 
 ## :camera: Visuals
 
-  <img src=".public/assets/img/NoteTaker1.png" width="300">
-  <img src=".public/assets/img/NoteTaker2.png" width="300">
+  <img src="./public/assets/img/NoteTaker1.png" width="300">
+  <img src="./public/assets/img/NoteTaker2.png" width="300">
 
 ## Installation:
 
